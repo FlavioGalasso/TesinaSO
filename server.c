@@ -103,7 +103,7 @@ int trywrite_booking_db(booking_order *booking_requested){
         int *rows = booking_requested->rows;
         int *cols = booking_requested->cols;
         printf("processing new order\n");
-        for(int i=0; i < size;i++) if(check_map_pos(rows[i],cols[i])) return -1; //check if all the entries are valid and not already taken
+        for(int i=0; i < size;i++) if(check_map_pos(cols[i],rows[i])) return -1; //check if all the entries are valid and not already taken
         printf("all positions clear, giving id: %d\n",next_free_id);
         //for(int i=0;i < size; i++) write_map_pos(rows[i],cols[i]);
         booking_requested->id = next_free_id;                                    //assign this order the unique id
